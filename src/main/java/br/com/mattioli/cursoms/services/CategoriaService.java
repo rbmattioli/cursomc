@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.mattioli.cursoms.domain.Categoria;
 import br.com.mattioli.cursoms.repositories.CategoriaRepository;
+import br.com.mattioli.cursoms.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -16,6 +17,12 @@ public class CategoriaService {
 
 		Categoria obj = repo.getById(id);
 
+		if (obj == null) {
+
+			throw new ObjectNotFoundException(
+					"objeto não encontrado! Id: " + id + ",Tipo: " + Categoria.class.getName());
+
+		}
 		return obj;
 
 	}
