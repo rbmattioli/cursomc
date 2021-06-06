@@ -1,7 +1,6 @@
 package br.com.mattioli.cursoms;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ import br.com.mattioli.cursoms.repositories.PagamentoRepository;
 import br.com.mattioli.cursoms.repositories.PedidoRepository;
 import br.com.mattioli.cursoms.repositories.ProdutoRepository;
 
-@SpringBootApplication
+@SpringBootApplication 
 public class CursomsApplication implements CommandLineRunner {
 
 	@Autowired

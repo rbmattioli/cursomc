@@ -1,15 +1,12 @@
 package br.com.mattioli.cursoms.domain.enums;
 
-import org.hibernate.boot.model.naming.IllegalIdentifierException;
-import org.springframework.context.support.StaticApplicationContext;
-
 public enum TipoCliente {
 
 	PESSOAFISICA(1,"Pessoa Física"), 
 	PESSOAJURIDICA(2,"Pessoa Jurídica");
 	
 	private int cod;
-	private String descricao;
+	private String descricao; 
 	
 	private TipoCliente(int cod,String descricao) {
 		

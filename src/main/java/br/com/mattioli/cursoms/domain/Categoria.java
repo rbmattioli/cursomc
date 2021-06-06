@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
@@ -24,8 +23,7 @@ public class Categoria implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	
-	@JsonManagedReference
+
 	@ManyToMany(mappedBy = "categorias")
 	private List<Produto> produtos = new ArrayList<Produto>();
 	
@@ -88,7 +86,7 @@ public class Categoria implements Serializable{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		return true;
+		return true; 
 	}
 
 
