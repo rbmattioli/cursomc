@@ -1,10 +1,12 @@
 package br.com.mattioli.cursoms.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import br.com.mattioli.cursoms.domain.Categoria;
 import br.com.mattioli.cursoms.repositories.CategoriaRepository;
+import br.com.mattioli.cursoms.services.exceptions.DataIntegrityException;
 import br.com.mattioli.cursoms.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -35,6 +37,18 @@ public class CategoriaService {
 	public Categoria update(Categoria obj) {
 		find(obj.getId());
 		return repo.save(obj);
+
+	}
+
+	public void delete(Integer id) {
+		find(id);
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			
+			throw new DataIntegrityException("Não é possível excluir uma categoria que possiu produtos");
+
+		}
 
 	}
 
