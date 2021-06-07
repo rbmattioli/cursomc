@@ -8,9 +8,11 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import br.com.mattioli.cursoms.services.validation.ClienteInsert;
+import br.com.mattioli.cursoms.services.validation.ClienteUpadate;
 
 
 @ClienteInsert
+@ClienteUpadate
 public class ClienteNewDTO implements Serializable{
 	
 	/**
