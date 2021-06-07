@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.mattioli.cursoms.domain.Categoria;
+import br.com.mattioli.cursoms.dto.CategoriaDTO;
 import br.com.mattioli.cursoms.repositories.CategoriaRepository;
 import br.com.mattioli.cursoms.services.exceptions.DataIntegrityException;
 import br.com.mattioli.cursoms.services.exceptions.ObjectNotFoundException;
@@ -68,5 +69,12 @@ public class CategoriaService {
 
 		return repo.findAll(pageRequest);
 	}
+	
+	public Categoria fromDTO (CategoriaDTO objDTO) {
+		
+		return new Categoria(objDTO.getId(), objDTO.getNome());
+		
+	}
+	
 
 }
